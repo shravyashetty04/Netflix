@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies – OMDb Netflix Clone</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav-left">
+        <div class="brand-mark"></div>
+        <span class="brand-text">Movieflix</span>
+        <nav class="nav-links">
+          <a href="#" class="nav-link active">Home</a>
+          <a href="#" class="nav-link">Series</a>
+          <a href="#" class="nav-link">Films</a>
+          <a href="#" class="nav-link">New &amp; Popular</a>
+          <a href="#" class="nav-link">My List</a>
+        </nav>
+      </div>
+      <div class="nav-right">
+        <form id="search-form" class="search">
+          <input
+            id="search-input"
+            class="search-input"
+            type="text"
+            placeholder="Search movies"
+            autocomplete="off"
+          />
+        </form>
+        <div class="nav-avatar"></div>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="hero-topline">OMDb ORIGINAL</p>
+          <h1 id="hero-title" class="hero-title">Loading featured movie…</h1>
+          <p id="hero-description" class="hero-description">
+            Discover movies powered by the Open Movie Database.
+          </p>
+          <div class="hero-actions">
+            <button id="hero-play" class="btn btn-primary">Play</button>
+            <button id="hero-more" class="btn btn-secondary">More Info</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="rows" class="rows"></section>
+    </main>
+
+    <div id="modal" class="modal hidden">
+      <div class="modal-backdrop"></div>
+      <div class="modal-dialog">
+        <button id="modal-close" class="modal-close">&times;</button>
+        <div id="modal-content"></div>
+      </div>
+    </div>
+
+    <template id="row-template">
+      <section class="row">
+        <h2 class="row-title"></h2>
+        <div class="row-scroller">
+          <div class="row-inner"></div>
+        </div>
+      </section>
+    </template>
+
+    <template id="card-template">
+      <article class="card">
+        <div class="card-img-wrapper">
+          <img class="card-img" loading="lazy" alt="" />
+          <div class="card-overlay">
+            <span class="card-title"></span>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+  </html>
+
