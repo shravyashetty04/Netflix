@@ -1,4 +1,4 @@
-const OMDB_API_KEY = "YOUR_OMDB_API_KEY_HERE"; // Replace with your key from http://www.omdbapi.com/apikey.aspx
+const OMDB_API_KEY = "a15e611f"; // Replace with your key from http://www.omdbapi.com/apikey.aspx
 const OMDB_BASE_URL = "https://www.omdbapi.com/";
 
 const FEATURED_SEARCH_TERM = "inception";
