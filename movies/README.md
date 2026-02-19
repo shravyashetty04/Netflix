@@ -1,41 +1,54 @@
-# Movieflix – Netflix-style Movie Landing Page (React)
+# Movieflix – Netflix-style Movie App (React)
 
-A React front-end that fetches movie data from the **OMDb API** and displays it in a Netflix-style layout.
+A React app with registration/login and Netflix-style movie browsing. Uses OMDB API and PostgreSQL (Aiven) for user data.
 
 ## Setup
 
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+### 1. Install dependencies
 
-2. **Add your OMDb API key** in `src/api/omdb.js`:
-   ```js
-   const OMDB_API_KEY = "your_api_key_here";
-   ```
-   Get a free key at: https://www.omdbapi.com/apikey.aspx
+```bash
+npm install
+cd server && npm install && cd ..
+```
+
+### 2. Database (Aiven PostgreSQL)
+
+Copy `server/.env.example` to `server/.env` and set your credentials:
+
+```
+DATABASE_URL=postgresql://avnadmin:YOUR_PASSWORD@kafka-3fe94df7-chavishetty03-ca4a.a.aivencloud.com:10762/defaultdb?sslmode=require
+PORT=3001
+```
+
+Get your password from the [Aiven Console](https://console.aiven.io/) for your PostgreSQL service.
+
+### 3. OMDB API key
+
+In `src/api/omdb.js`, set your key:
+```js
+const OMDB_API_KEY = "your_key";
+```
+Get a free key at: https://www.omdbapi.com/apikey.aspx
 
 ## Run
 
+**Terminal 1 – Backend:**
+```bash
+cd server && npm run dev
+```
+
+**Terminal 2 – Frontend:**
 ```bash
 npm run dev
 ```
 
-Then open http://localhost:5173 in your browser.
-
-## Build
-
-```bash
-npm run build
-```
-
-Output is in the `dist` folder.
+- Frontend: http://localhost:5173
+- Backend: http://localhost:3001
 
 ## Features
 
-- React + Vite
-- Netflix-style UI: sidebar, hero banner, horizontal movie carousels
-- OMDB API integration
-- Featured hero with IMDb rating, Play and Watch Trailer
-- Scrollable rows with arrow navigation
-- Movie detail modal
+- **Auth pages** (green frosted-glass design): Welcome, Login, Register
+- **Registration**: User ID, Email, Phone, Password (bcrypt-hashed)
+- **Login**: Email + Password
+- **Movies**: Netflix-style UI with OMDB data
+- **Database**: PostgreSQL on Aiven
